@@ -89,10 +89,6 @@ h1 em{font-style:normal;color:var(--berry)}
 
 /* ---------- reasons ---------- */
 .section{padding:74px 0}
-.box{
-  flex:none;width:24px;height:24px;border:2.5px solid var(--ink);border-radius:5px;
-  display:grid;place-items:center;
-}
 .reasons{display:grid;gap:20px;margin-top:34px}
 @media(min-width:820px){.reasons{grid-template-columns:repeat(3,1fr)}}
 .card{
@@ -145,30 +141,32 @@ h1 em{font-style:normal;color:var(--berry)}
 }
 .finale h2{font-size:clamp(2rem,6.4vw,3.4rem);margin-bottom:14px}
 .finale p{color:rgba(237,233,247,.68);max-width:44ch;margin:0 auto}
-.tickbox{
-  margin:38px auto 0;width:min(430px,100%);
-  display:flex;align-items:center;gap:18px;text-align:left;
-  background:rgba(237,233,247,.07);border:2px solid rgba(237,233,247,.3);
-  border-radius:16px;padding:20px 22px;cursor:pointer;color:inherit;font:inherit;
-  transition:border-color .25s,background .25s,transform .2s;
+.face{font-size:clamp(2.6rem,10vw,3.8rem);margin:0 0 14px;line-height:1;transition:transform .3s}
+.face.bump{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.22) rotate(-6deg)}}
+.choices{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
+.btn-yes,.btn-no{
+  font:inherit;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-.01em;
+  border-radius:14px;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.25,1),font-size .35s,padding .35s,filter .2s,opacity .35s;
 }
-.tickbox:hover{border-color:var(--butter);background:rgba(255,201,77,.1)}
-.tickbox:active{transform:scale(.985)}
-.tickbox:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
-.tickbox .box{width:30px;height:30px;border-color:var(--paper-2)}
-.tickbox .box svg{width:19px;stroke:var(--butter);stroke-width:3.4;fill:none;
-  stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .4s ease}
-.tickbox .txt{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.22rem;letter-spacing:-.02em}
-.tickbox .sub{display:block;font-family:"Karla",sans-serif;font-weight:500;font-size:.8rem;
-  letter-spacing:.14em;text-transform:uppercase;color:rgba(237,233,247,.55);margin-top:3px}
-.tickbox.on{border-color:var(--butter);background:rgba(255,201,77,.14)}
-.tickbox.on .box svg{stroke-dashoffset:0}
-.tickbox.on .txt{text-decoration:line-through;text-decoration-thickness:2px;color:var(--butter)}
+.btn-yes{background:var(--butter);color:var(--ink);border:2px solid var(--butter);padding:17px 30px;font-size:1.06rem}
+.btn-yes:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn-no{background:transparent;color:rgba(237,233,247,.6);border:2px solid rgba(237,233,247,.28);padding:17px 26px;font-size:1.02rem}
+.btn-no:hover{border-color:rgba(237,233,247,.5);color:var(--paper-2)}
+.btn-yes:focus-visible,.btn-no:focus-visible{outline:3px solid var(--berry);outline-offset:3px}
+#ask.gone{display:none}
 .yay{
   max-height:0;opacity:0;overflow:hidden;
   transition:max-height .6s ease,opacity .5s .15s ease;
 }
-.yay.on{max-height:280px;opacity:1}
+.yay.on{max-height:460px;opacity:1}
+.yay .big-face{margin-bottom:6px}
+.cta{
+  display:inline-block;margin-top:24px;background:var(--butter);color:var(--ink);
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.02rem;
+  text-decoration:none;border-radius:14px;padding:16px 28px;transition:transform .2s,filter .2s;
+}
+.cta:hover{filter:brightness(1.08);transform:translateY(-2px)}
 .yay .big{font-family:"Caveat",cursive;font-size:clamp(1.9rem,6vw,2.8rem);color:var(--butter);margin:30px 0 6px;line-height:1.1}
 .yay p{color:rgba(237,233,247,.7)}
 .conf{position:absolute;inset:0;pointer-events:none;overflow:hidden}
@@ -323,17 +321,21 @@ body.locked{overflow:hidden}
 
   <section class="finale reveal">
     <div class="conf" id="conf"></div>
-    <h2>One tick left.</h2>
-    <p>Press the box below and it's confirmed for tomorrow. I'll handle the rest — the table, the timing, and the ice cream.</p>
-
-    <button class="tickbox" id="tick" aria-pressed="false">
-      <span class="box"><svg viewBox="0 0 24 24"><polyline points="4,13 9,18 20,6"/></svg></span>
-      <span><span class="txt">Kokoy hangout</span><span class="sub">Tomorrow · pending</span></span>
-    </button>
+    <div id="ask">
+      <p class="face" id="face" aria-hidden="true">🥺</p>
+      <h2 id="ask-h">So — tomorrow?</h2>
+      <p id="ask-p">Kokoy, Noida. I'll handle the table, the timing, and the ice cream. You just have to show up.</p>
+      <div class="choices">
+        <button class="btn-yes" id="yes">Maan gayi</button>
+        <button class="btn-no" id="no">It's still a no</button>
+      </div>
+    </div>
 
     <div class="yay" id="yay">
+      <p class="face big-face" aria-hidden="true">🍦</p>
       <p class="big">See you tomorrow, then.</p>
-      <p>Send me a screenshot, or just text me "let's go." Either one works.</p>
+      <p>Sunday is officially yours and mine. Block it so nothing else sneaks in.</p>
+      <a class="cta" id="cal-link" target="_blank" rel="noopener">Block my Sunday</a>
     </div>
   </section>
 
@@ -442,18 +444,57 @@ body.locked{overflow:hidden}
   },{threshold:.18});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 
-  var btn = document.getElementById('tick');
-  var yay = document.getElementById('yay');
+  var ask  = document.getElementById('ask');
+  var yes  = document.getElementById('yes');
+  var no   = document.getElementById('no');
+  var face = document.getElementById('face');
+  var askH = document.getElementById('ask-h');
+  var askP = document.getElementById('ask-p');
+  var yay  = document.getElementById('yay');
   var conf = document.getElementById('conf');
   var colors = ['#FFC94D','#E24E76','#7FBF9B','#EDE9F7'];
-  var fired = false;
 
-  btn.addEventListener('click', function(){
-    var on = btn.classList.toggle('on');
-    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    btn.querySelector('.sub').textContent = on ? 'Tomorrow · confirmed' : 'Tomorrow · pending';
-    yay.classList.toggle('on', on);
-    if(on && !fired){ fired = true; rain(); }
+  // Google Calendar: all-day Sunday, guest added. dates end is exclusive.
+  document.getElementById('cal-link').href =
+    'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+    '&text=' + encodeURIComponent('Kokoy, Noida — with Kartik') +
+    '&dates=20260809/20260810' +
+    '&details=' + encodeURIComponent('The pending plan, finally happening. Ice cream is on me.') +
+    '&location=' + encodeURIComponent('Kokoy Cafe, Noida') +
+    '&add=' + encodeURIComponent('lavishkatyagi01@gmail.com');
+
+  var rounds = [
+    {f:'😢', h:'That is the wrong button.',   p:'Try the other one. It is right there, and it is bigger now.'},
+    {f:'😭', h:'Okay that genuinely hurt.',   p:'I already promised you ice cream. I do not make that promise lightly.'},
+    {f:'🥲', h:'Still asking. Politely.',     p:'One afternoon. That is the entire ask. Then you never hear about Kokoy again.'},
+    {f:'😩', h:'This is round four.',         p:'The cafe is not going anywhere but my dignity is.'},
+    {f:'🫠', h:'I can do this all day.',      p:'The no button is getting smaller and I am getting more hopeful.'},
+    {f:'🥹', h:'Please?',                     p:'Last one. Well, not really. But say yes anyway.'}
+  ];
+  var i = 0;
+
+  no.addEventListener('click', function(){
+    var r = rounds[Math.min(i, rounds.length - 1)];
+    face.textContent = r.f;
+    askH.textContent = r.h;
+    askP.textContent = r.p;
+    face.classList.remove('bump');
+    void face.offsetWidth;
+    face.classList.add('bump');
+
+    i++;
+    var shrink = Math.max(1 - i * 0.13, 0.42);
+    no.style.transform = 'scale(' + shrink + ')';
+    no.style.opacity = Math.max(1 - i * 0.1, 0.45);
+    yes.style.fontSize = Math.min(1.06 + i * 0.11, 1.85) + 'rem';
+    yes.style.padding = Math.min(17 + i * 3, 32) + 'px ' + Math.min(30 + i * 6, 66) + 'px';
+  });
+
+  yes.addEventListener('click', function(){
+    ask.classList.add('gone');
+    yay.classList.add('on');
+    rain();
+    yay.scrollIntoView({block:'center', behavior:'smooth'});
   });
 
   function rain(){
