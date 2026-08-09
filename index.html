@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kokoy, Noida — ek pending plan</title>
-<meta name="description" content="One hangout that never got ticked off. Three reasons to finally do it.">
-<meta property="og:title" content="Kokoy, Noida — ek pending plan">
-<meta property="og:description" content="One hangout that never got ticked off. Three reasons to finally do it.">
-<meta property="og:image" content="img/p4.jpg">
+<title>The Hangout Ledger</title>
+<meta name="description" content="Every plan we said we'd do, logged with dates and photo proof. Latest entry: settled.">
+<meta property="og:title" content="The Hangout Ledger">
+<meta property="og:description" content="Every plan we said we'd do, logged with dates and photo proof.">
+<meta property="og:image" content="img/kokoy.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Karla:wght@400;500;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
@@ -54,19 +54,18 @@ h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;
 .eyebrow::after{content:"";height:1px;flex:1;background:var(--line)}
 
 /* ---------- hero ---------- */
-.hero{padding:78px 0 40px}
+.hero{padding:70px 0 30px}
 .stamp{
   display:inline-flex;align-items:center;gap:9px;
-  border:2px solid var(--berry);color:var(--berry);
+  border:2px solid var(--pistachio);color:#3E7A5B;
   border-radius:100px;padding:7px 16px 7px 13px;
   font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  transform:rotate(-2.2deg);background:rgba(226,78,118,.06);
+  transform:rotate(-2.2deg);background:rgba(127,191,155,.14);
 }
-.stamp .dot{width:8px;height:8px;border-radius:50%;background:var(--berry);animation:pulse 1.9s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.75)}}
+.stamp .dot{width:8px;height:8px;border-radius:50%;background:var(--pistachio)}
 h1{
-  font-size:clamp(3.1rem,11.5vw,7.6rem);
-  margin:26px 0 0;
+  font-size:clamp(2.7rem,10vw,6.6rem);
+  margin:24px 0 0;
   font-variation-settings:"opsz" 96;
 }
 h1 .line{display:block;overflow:hidden}
@@ -74,51 +73,126 @@ h1 .line > span{display:block;animation:rise .9s cubic-bezier(.2,.8,.25,1) backw
 h1 .line:nth-child(2) > span{animation-delay:.1s}
 h1 .line:nth-child(3) > span{animation-delay:.2s}
 @keyframes rise{from{transform:translateY(105%)}to{transform:translateY(0)}}
-h1 em{font-style:normal;color:var(--berry)}
+h1 em{font-style:normal;color:var(--pistachio)}
 .hero-sub{
-  margin:28px 0 0;max-width:46ch;font-size:1.16rem;color:var(--ink-soft);
+  margin:26px 0 0;max-width:46ch;font-size:1.14rem;color:var(--ink-soft);
   animation:fade 1s .5s backwards;
 }
 @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .hero-meta{
-  display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px;
+  display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px;
   font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
   animation:fade 1s .65s backwards;
 }
 .hero-meta b{color:var(--ink)}
 
-/* ---------- reasons ---------- */
-.section{padding:74px 0}
-.reasons{display:grid;gap:20px;margin-top:34px}
-@media(min-width:820px){.reasons{grid-template-columns:repeat(3,1fr)}}
-.card{
-  background:var(--paper-2);border:1.5px solid var(--ink);border-radius:18px;
-  padding:26px 24px 28px;box-shadow:var(--shadow);position:relative;
+/* latest polaroid */
+.latest{
+  margin-top:44px;display:grid;gap:26px;align-items:center;
+  animation:fade 1s .8s backwards;
+}
+@media(min-width:820px){.latest{grid-template-columns:minmax(0,340px) 1fr;gap:44px}}
+.latest .frame{margin:0;max-width:340px}
+.latest .said{
+  font-family:"Caveat",cursive;font-size:clamp(1.5rem,4.4vw,2.1rem);
+  color:var(--ink);line-height:1.25;margin:0;max-width:22ch;
+}
+.latest .said span{color:var(--berry)}
+.latest .receipt{
+  margin-top:20px;border-top:1.5px dashed var(--line);padding-top:16px;
+  font-size:14px;color:var(--ink-soft);display:grid;gap:6px;max-width:30ch;
+}
+.latest .receipt div{display:flex;justify-content:space-between;gap:16px}
+.latest .receipt b{color:var(--ink);font-weight:700}
+
+/* ---------- sections ---------- */
+.section{padding:66px 0}
+.section h2{font-size:clamp(1.8rem,5.6vw,3rem);margin-top:16px;max-width:20ch}
+
+/* ---------- stats ---------- */
+.stats{display:grid;gap:14px;margin-top:30px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{
+  background:var(--paper-2);border:1.5px solid var(--ink);border-radius:16px;
+  padding:20px 18px;box-shadow:var(--shadow);
+}
+.stat .n{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2.2rem;line-height:1;letter-spacing:-.03em}
+.stat .l{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-top:8px}
+.stat:nth-child(2) .n{color:var(--berry)}
+.stat:nth-child(3) .n{color:var(--pistachio)}
+
+/* ---------- ledger ---------- */
+.ledger{margin-top:34px;border-top:1.5px solid var(--ink)}
+.row{
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px 18px;align-items:center;
+  padding:18px 4px;border-bottom:1.5px solid var(--line);
+  background:none;border-left:0;border-right:0;border-top:0;width:100%;text-align:left;
+  font:inherit;color:inherit;cursor:pointer;
+  transition:background .22s,padding-left .22s;
+}
+.row:hover,.row:focus-visible{background:rgba(255,201,77,.16);padding-left:12px;outline:none}
+.row .no{
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:.9rem;
+  color:var(--ink-soft);width:2.4ch;letter-spacing:-.02em;
+}
+.row .body{min-width:0}
+.row .place,.row .note,.row .meta{display:block}
+.row .place{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.22rem;letter-spacing:-.02em;line-height:1.15}
+.row .place .tbd{color:var(--ink-soft);font-weight:400;font-style:italic}
+.row .note{font-family:"Caveat",cursive;font-size:1.16rem;color:var(--berry);line-height:1.2;margin-top:2px}
+.row .meta{
+  font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--ink-soft);margin-top:6px;
+}
+.row .thumb{
+  width:64px;height:64px;flex:none;border-radius:4px;object-fit:cover;background:var(--line);
+  border:4px solid #fff;box-shadow:var(--shadow);transform:rotate(-2.5deg);
   transition:transform .3s cubic-bezier(.2,.8,.25,1);
 }
-.card:hover{transform:translateY(-6px) rotate(-.5deg)}
-.card .tick{
-  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
-  background:var(--butter);border:1.5px solid var(--ink);margin-bottom:18px;font-size:19px;
+.row:nth-child(even) .thumb{transform:rotate(2deg)}
+.row:hover .thumb{transform:rotate(0) scale(1.14)}
+.row .nothumb{
+  width:64px;height:64px;flex:none;border-radius:4px;border:1.5px dashed var(--line);
+  display:grid;place-items:center;font-size:11px;color:var(--ink-soft);text-align:center;line-height:1.1;
 }
-.card:nth-child(2) .tick{background:var(--pistachio)}
-.card:nth-child(3) .tick{background:var(--berry)}
-.card h3{font-size:1.5rem;margin-bottom:10px}
-.card p{margin:0;color:var(--ink-soft);font-size:1rem}
-.card .note{display:block;margin-top:14px;font-size:1.2rem}
+.row.upcoming{background:rgba(226,78,118,.07)}
+.row.upcoming .no{color:var(--berry)}
+
+/* ---------- lightbox ---------- */
+.box{
+  position:fixed;inset:0;z-index:60;background:rgba(34,27,58,.9);
+  display:grid;place-items:center;padding:24px;
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;
+}
+.box.on{opacity:1;visibility:visible}
+.box figure{margin:0;background:#fff;padding:12px 12px 52px;border-radius:3px;max-width:min(520px,92vw);box-shadow:0 30px 70px -20px #000}
+.box img{display:block;width:100%;max-height:72vh;object-fit:contain;background:var(--line)}
+.box figcaption{font-family:"Caveat",cursive;font-size:1.35rem;color:var(--ink);margin-top:12px;line-height:1.2}
+.box figcaption small{display:block;font-family:"Karla",sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+.box .x{
+  position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;
+  background:rgba(247,245,253,.12);border:1px solid rgba(247,245,253,.3);color:var(--paper-2);
+  font-size:22px;cursor:pointer;line-height:1;
+}
 
 /* ---------- gallery ---------- */
-.gal{
-  columns:2;column-gap:16px;margin-top:34px;
-}
+.gal{columns:2;column-gap:16px;margin-top:34px}
 @media(min-width:760px){.gal{columns:3;column-gap:22px}}
+.gal .frame{cursor:pointer}
+.gal .frame:nth-child(odd){transform:rotate(-1.4deg)}
+.gal .frame:nth-child(even){transform:rotate(1.2deg)}
+.gal .frame:nth-child(3n){transform:rotate(.6deg)}
+@media(min-width:760px){.gal .frame{margin-bottom:22px}}
+.gal .frame:hover{transform:rotate(0deg) scale(1.035);z-index:3;box-shadow:0 26px 50px -20px rgba(34,27,58,.6)}
+
+/* ---------- frames ---------- */
 .frame{
   break-inside:avoid;margin:0 0 16px;position:relative;
   background:#fff;padding:10px 10px 44px;border-radius:3px;
   box-shadow:var(--shadow);
   transition:transform .35s cubic-bezier(.2,.8,.25,1),box-shadow .35s;
+  transform:rotate(-1.6deg);
 }
-@media(min-width:760px){.frame{margin-bottom:22px}}
 .frame img{width:100%;display:block;border-radius:1px;background:var(--line)}
 .frame figcaption{
   position:absolute;left:12px;right:12px;bottom:12px;
@@ -129,17 +203,14 @@ h1 em{font-style:normal;color:var(--berry)}
   transform:translateX(-50%) rotate(-2deg);background:var(--tape);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.4);
 }
-.frame:nth-child(odd){transform:rotate(-1.4deg)}
-.frame:nth-child(even){transform:rotate(1.2deg)}
-.frame:nth-child(3n){transform:rotate(.6deg)}
-.frame:hover{transform:rotate(0deg) scale(1.035);z-index:3;box-shadow:0 26px 50px -20px rgba(34,27,58,.6)}
+.frame:hover{transform:rotate(0deg) scale(1.03);z-index:3;box-shadow:0 26px 50px -20px rgba(34,27,58,.6)}
 
 /* ---------- finale ---------- */
 .finale{
   margin:20px 0 90px;background:var(--ink);color:var(--paper-2);
   border-radius:26px;padding:clamp(34px,7vw,68px);text-align:center;position:relative;overflow:hidden;
 }
-.finale h2{font-size:clamp(2rem,6.4vw,3.4rem);margin-bottom:14px}
+.finale h2{font-size:clamp(2rem,6.4vw,3.4rem);margin:0 auto 14px;max-width:16ch}
 .finale p{color:rgba(237,233,247,.68);max-width:44ch;margin:0 auto}
 .face{font-size:clamp(2.6rem,10vw,3.8rem);margin:0 0 14px;line-height:1;transition:transform .3s}
 .face.bump{animation:bump .5s}
@@ -159,7 +230,7 @@ h1 em{font-style:normal;color:var(--berry)}
   max-height:0;opacity:0;overflow:hidden;
   transition:max-height .6s ease,opacity .5s .15s ease;
 }
-.yay.on{max-height:460px;opacity:1}
+.yay.on{max-height:520px;opacity:1}
 .yay .big-face{margin-bottom:6px}
 .cta{
   display:inline-block;margin-top:24px;background:var(--butter);color:var(--ink);
@@ -189,15 +260,12 @@ footer .hand{font-size:1.3rem;display:block;margin-bottom:6px}
 .gate .eyebrow::after,.gate .eyebrow::before{content:"";height:1px;flex:1;background:rgba(237,233,247,.22)}
 .gate h2{font-size:clamp(1.7rem,6.4vw,2.5rem);margin:22px 0 10px}
 .gate .q{color:rgba(237,233,247,.7);margin:0 0 26px;font-size:1.02rem}
-/* calendar */
 .cal{
   background:rgba(237,233,247,.06);border:2px solid rgba(237,233,247,.22);
   border-radius:20px;padding:18px 16px 20px;
 }
 .cal-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:16px}
-.cal-head .mo{
-  font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.14rem;letter-spacing:-.01em;
-}
+.cal-head .mo{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.14rem;letter-spacing:-.01em}
 .nav{
   width:38px;height:38px;flex:none;border-radius:11px;cursor:pointer;
   background:rgba(237,233,247,.08);border:1px solid rgba(237,233,247,.2);color:var(--paper-2);
@@ -268,99 +336,374 @@ body.locked{overflow:hidden}
 <div class="wrap">
 
   <header class="hero">
-    <span class="stamp"><span class="dot"></span>Status: still pending</span>
+    <span class="stamp"><span class="dot"></span><span id="stamp-txt">Settled</span></span>
     <h1>
-      <span class="line"><span>Kokoy.</span></span>
-      <span class="line"><span>Noida.</span></span>
-      <span class="line"><span><em>Finally?</em></span></span>
+      <span class="line"><span id="h1-a">—</span></span>
+      <span class="line"><span id="h1-b">—</span></span>
+      <span class="line"><span><em id="h1-c">Done.</em></span></span>
     </h1>
-    <p class="hero-sub">One plan that never made it past "yeah, we should do that sometime." It's been sitting open long enough. So: tomorrow.</p>
-    <div class="hero-meta">
-      <span>Where <b>Kokoy Cafe, Noida</b></span>
-      <span>When <b>Tomorrow</b></span>
-      <span>Bill <b>Mine</b></span>
-    </div>
+    <p class="hero-sub" id="hero-sub">The running record of every plan we said we'd get around to — and the photo proof that we actually did.</p>
+    <div class="hero-meta" id="hero-meta"></div>
+
+    <div class="latest" id="latest"></div>
   </header>
 
   <section class="section reveal">
-    <p class="eyebrow">Three reasons</p>
-    <div class="reasons">
-      <article class="card">
-        <div class="tick">📌</div>
-        <h3>It's been pending forever</h3>
-        <p>The Kokoy hangout was always on our list and never happened. Nothing is more relaxing than finally closing something that's been sitting open that long.</p>
-        <span class="hand note">one tick, instant relief</span>
-      </article>
-      <article class="card">
-        <div class="tick">🍦</div>
-        <h3>I'm buying the ice cream</h3>
-        <p>This is a promise, not a suggestion. You pick the flavour, I pay for it. There is genuinely nothing here to argue about.</p>
-        <span class="hand note">non-negotiable</span>
-      </article>
-      <article class="card">
-        <div class="tick">💬</div>
-        <h3>You get to see me</h3>
-        <p>And I get to see you. We sit, we talk, we catch up properly on all the things we've missed while everything else got in the way.</p>
-        <span class="hand note">no substitute for this</span>
-      </article>
-    </div>
+    <p class="eyebrow">The count</p>
+    <div class="stats" id="stats"></div>
   </section>
 
   <section class="section reveal">
-    <p class="eyebrow">Evidence</p>
-    <h2 style="font-size:clamp(1.8rem,5.6vw,3rem);margin-top:16px;max-width:18ch">Proof that we've never wasted a day together.</h2>
-    <div class="gal">
-      <figure class="frame"><img src="img/p5.jpg" alt="Feeding birthday cake" loading="lazy"><figcaption>my birthday cake</figcaption></figure>
-      <figure class="frame"><img src="img/p1.jpg" alt="Night selfie" loading="lazy"><figcaption>night, and zero light</figcaption></figure>
-      <figure class="frame"><img src="img/p4.jpg" alt="Selfie with roses" loading="lazy"><figcaption>the one with the flowers</figcaption></figure>
-      <figure class="frame"><img src="img/p2.jpg" alt="Mirror selfie while shopping" loading="lazy"><figcaption>shopping, mirror, classic</figcaption></figure>
-      <figure class="frame"><img src="img/p6.jpg" alt="The two of us dressed up" loading="lazy"><figcaption>our last pic together</figcaption></figure>
-      <figure class="frame"><img src="img/p3.jpg" alt="Portrait with glasses" loading="lazy"><figcaption>the glasses one</figcaption></figure>
-    </div>
+    <p class="eyebrow">The ledger</p>
+    <h2>Everything we've ticked off, in order.</h2>
+    <p style="color:var(--ink-soft);margin-top:14px;max-width:52ch">One row for now. Tap it for the proof. Every plan we actually go through with from here gets its own line.</p>
+    <div class="ledger" id="ledger"></div>
+  </section>
+
+  <section class="section reveal">
+    <p class="eyebrow">Before the ledger</p>
+    <h2>The undocumented years.</h2>
+    <p style="color:var(--ink-soft);margin-top:14px;max-width:52ch">No dates, no rows, no paperwork — just proof that we've never wasted a day together.</p>
+    <div class="gal" id="gal"></div>
   </section>
 
   <section class="finale reveal">
     <div class="conf" id="conf"></div>
     <div id="ask">
-      <p class="face" id="face" aria-hidden="true">🥺</p>
-      <h2 id="ask-h">So — tomorrow?</h2>
-      <p id="ask-p">Kokoy, Noida. I'll handle the table, the timing, and the ice cream. You just have to show up.</p>
+      <p class="face" id="face" aria-hidden="true">👀</p>
+      <h2 id="ask-h">So — what's next?</h2>
+      <p id="ask-p">The ledger has an empty row at the bottom and I hate empty rows. Pick a place, pick a day, and I'll log it.</p>
       <div class="choices">
-        <button class="btn-yes" id="yes">Maan gayi</button>
-        <button class="btn-no" id="no">It's still a no</button>
+        <button class="btn-yes" id="yes">Fine, let's book one</button>
+        <button class="btn-no" id="no">Not right now</button>
       </div>
     </div>
 
     <div class="yay" id="yay">
-      <p class="face big-face" aria-hidden="true">🍦</p>
-      <p class="big">See you tomorrow, then.</p>
-      <p>Sunday is officially yours and mine. Block it so nothing else sneaks in.</p>
-      <a class="cta" id="cal-link" target="_blank" rel="noopener">Block my Sunday</a>
+      <p class="face big-face" aria-hidden="true">📖</p>
+      <p class="big" id="yay-big">Row reserved.</p>
+      <p id="yay-p">Block it before something else does. I'll bring the camera for the proof.</p>
+      <a class="cta" id="cal-link" target="_blank" rel="noopener">Add it to the calendar</a>
     </div>
   </section>
 
   <footer>
     <span class="hand">— Kartik</span>
-    Made because "we should meet sometime" was getting old.
+    Kept because "we should do that sometime" deserved a paper trail.
   </footer>
 
 </div>
 
+<div class="box" id="box" role="dialog" aria-modal="true" aria-label="Photo proof">
+  <button class="x" id="box-x" aria-label="Close">✕</button>
+  <figure>
+    <img id="box-img" alt="">
+    <figcaption id="box-cap"></figcaption>
+  </figure>
+</div>
+
 <script>
+/* =============================================================
+   THE LEDGER — this is the only bit you edit.
+
+   To log a new hangout:
+     1. Drop the photo in  img/
+     2. Add an entry to the TOP of the HANGOUTS list below.
+     3. Save. The hero, the counts and the ledger all update themselves.
+
+   Fields:
+     date  "YYYY-MM-DD"  — or "" if you genuinely can't remember
+     place "Kokoy Cafe, Noida"
+     note  the handwritten one-liner
+     img   "img/whatever.jpg" — or "" for no photo yet
+     tab   who paid (optional)
+     next  true  → marks it as upcoming instead of settled
+   ============================================================= */
+var HANGOUTS = [
+  {date:"2026-08-09", place:"Kokoy Cafe, Noida", note:"the pending one, finally closed", img:"img/kokoy.jpg", tab:"Mine, as promised"}
+];
+
+/* Everything from before the ledger existed. Photos only — no dates needed. */
+var GALLERY = [
+  {img:"img/p5.jpg", cap:"my birthday cake"},
+  {img:"img/p1.jpg", cap:"night, and zero light"},
+  {img:"img/p4.jpg", cap:"the one with the flowers"},
+  {img:"img/p2.jpg", cap:"shopping, mirror, classic"},
+  {img:"img/p6.jpg", cap:"the one before this one"},
+  {img:"img/p3.jpg", cap:"the glasses one"}
+];
+
+/* The next one. Fill both in and it takes over the top of the ledger.
+   Leave them blank and the site just nags about it. */
+var NEXT = {date:"", place:"", note:"still unwritten"};
+
+var HER_EMAIL = "lavishkatyagi01@gmail.com";
+/* ============================================================= */
+
 (function(){
+  var MONTHS = ['January','February','March','April','May','June',
+                'July','August','September','October','November','December'];
+  var SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DOW = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  function parse(s){
+    if(!s) return null;
+    var p = s.split('-');
+    return new Date(+p[0], +p[1]-1, +p[2]);
+  }
+  function fmt(s){
+    var d = parse(s);
+    if(!d) return '';
+    return String(d.getDate()).padStart(2,'0') + ' ' + SHORT[d.getMonth()] + ' ' + d.getFullYear();
+  }
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function ymd(s){ return s.replace(/-/g,''); }
+  function nextDay(s){
+    var d = parse(s); d.setDate(d.getDate()+1);
+    return d.getFullYear() + String(d.getMonth()+1).padStart(2,'0') + String(d.getDate()).padStart(2,'0');
+  }
+
+  var hasNext = !!(NEXT.date && NEXT.place);
+  var settled = HANGOUTS.slice().sort(function(a,b){
+    if(a.date && b.date) return a.date < b.date ? 1 : -1;
+    if(a.date) return -1;
+    if(b.date) return 1;
+    return 0;
+  });
+  var latest = settled[0];
+
+  /* ---------- hero ---------- */
+  var placeBits = (latest.place || 'That place').split(',');
+  document.getElementById('h1-a').textContent = (placeBits[0] || '').trim() + '.';
+  document.getElementById('h1-b').textContent = (placeBits[1] || 'Logged').trim() + '.';
+  document.getElementById('h1-c').textContent = 'Done.';
+  document.getElementById('stamp-txt').textContent =
+    'Entry №' + String(settled.length).padStart(2,'0') + ' — settled';
+  document.title = (latest.place || 'The Hangout Ledger') + ' — settled | The Hangout Ledger';
+
+  var ld = parse(latest.date);
+  document.getElementById('hero-sub').textContent =
+    'The running record of every plan we said we’d get around to. ' +
+    (ld ? DOW[ld.getDay()] + ' it finally came off the list. ' : '') +
+    'Photo proof included, because otherwise it didn’t happen.';
+
+  document.getElementById('hero-meta').innerHTML =
+    '<span>Where <b>' + esc(latest.place || 'TBD') + '</b></span>' +
+    '<span>When <b>' + esc(fmt(latest.date) || 'undated') + '</b></span>' +
+    '<span>Status <b>Ticked off</b></span>';
+
+  var receipt = '';
+  if(latest.place) receipt += '<div><span>Place</span><b>' + esc(latest.place) + '</b></div>';
+  if(latest.date)  receipt += '<div><span>Date</span><b>' + esc(fmt(latest.date)) + '</b></div>';
+  if(ld)           receipt += '<div><span>Day</span><b>' + DOW[ld.getDay()] + '</b></div>';
+  if(latest.tab)   receipt += '<div><span>Tab</span><b>' + esc(latest.tab) + '</b></div>';
+  receipt += '<div><span>Verdict</span><b>Worth the wait</b></div>';
+
+  document.getElementById('latest').innerHTML =
+    '<figure class="frame" id="latest-frame">' +
+      '<img src="' + esc(latest.img) + '" alt="' + esc(latest.place || 'Latest hangout') + '">' +
+      '<figcaption>' + esc(latest.note || '') + '</figcaption>' +
+    '</figure>' +
+    '<div>' +
+      '<p class="said">We said we’d do it <span>sometime</span>. Sometime was ' +
+        esc(fmt(latest.date) || 'today') + '.</p>' +
+      '<div class="receipt">' + receipt + '</div>' +
+    '</div>';
+
+  /* ---------- stats ---------- */
+  var dated = settled.filter(function(h){ return h.date; });
+  var oldest = dated.length ? dated[dated.length-1] : null;
+  var withPhoto = settled.filter(function(h){ return h.img; }).length;
+
+  document.getElementById('stats').innerHTML =
+    stat(String(settled.length).padStart(2,'0'), 'Logged in the ledger') +
+    stat(String(withPhoto).padStart(2,'0'), 'With photo proof') +
+    stat(hasNext ? '01' : '00', 'On the books') +
+    stat(oldest ? fmt(oldest.date).slice(-4) : '—', 'Ledger opened');
+
+  function stat(n, l){
+    return '<div class="stat"><div class="n">' + esc(n) + '</div><div class="l">' + esc(l) + '</div></div>';
+  }
+
+  /* ---------- ledger rows ---------- */
+  var rows = [];
+  if(hasNext){
+    rows.push(row(NEXT, '→', true));
+  }
+  settled.forEach(function(h, i){
+    rows.push(row(h, String(settled.length - i).padStart(2,'0'), false));
+  });
+  document.getElementById('ledger').innerHTML = rows.join('');
+
+  function row(h, no, upcoming){
+    var thumb = h.img
+      ? '<img class="thumb" src="' + esc(h.img) + '" alt="" loading="lazy">'
+      : '<span class="nothumb">no<br>proof</span>';
+    var place = h.place
+      ? esc(h.place)
+      : '<span class="tbd">place to be filled in</span>';
+    var meta = upcoming
+      ? 'Upcoming · ' + esc(fmt(h.date))
+      : (h.date ? esc(fmt(h.date)) : 'Date unrecorded');
+    return '<button class="row' + (upcoming ? ' upcoming' : '') + '"' +
+             ' data-img="' + esc(h.img || '') + '"' +
+             ' data-cap="' + esc(h.note || '') + '"' +
+             ' data-meta="' + esc((h.place ? h.place + ' · ' : '') + (fmt(h.date) || 'undated')) + '">' +
+             '<span class="no">' + esc(no) + '</span>' +
+             '<span class="body">' +
+               '<span class="place">' + place + '</span>' +
+               (h.note ? '<span class="note">' + esc(h.note) + '</span>' : '') +
+               '<span class="meta">' + meta + '</span>' +
+             '</span>' +
+             thumb +
+           '</button>';
+  }
+
+  /* ---------- gallery ---------- */
+  document.getElementById('gal').innerHTML = GALLERY.map(function(g){
+    return '<figure class="frame" data-img="' + esc(g.img) + '" data-cap="' + esc(g.cap) + '">' +
+             '<img src="' + esc(g.img) + '" alt="' + esc(g.cap) + '" loading="lazy">' +
+             '<figcaption>' + esc(g.cap) + '</figcaption>' +
+           '</figure>';
+  }).join('');
+
+  /* ---------- lightbox ---------- */
+  var box = document.getElementById('box');
+  var boxImg = document.getElementById('box-img');
+  var boxCap = document.getElementById('box-cap');
+  var lastFocus = null;
+
+  function open(src, cap, meta){
+    if(!src) return;
+    boxImg.src = src;
+    boxImg.alt = cap || meta;
+    boxCap.innerHTML = esc(cap) + '<small>' + esc(meta) + '</small>';
+    box.classList.add('on');
+    document.body.classList.add('locked');
+    document.getElementById('box-x').focus();
+  }
+  function close(){
+    box.classList.remove('on');
+    document.body.classList.remove('locked');
+    if(lastFocus) lastFocus.focus();
+  }
+  document.getElementById('ledger').addEventListener('click', function(e){
+    var r = e.target.closest('.row');
+    if(!r) return;
+    lastFocus = r;
+    open(r.dataset.img, r.dataset.cap, r.dataset.meta);
+  });
+  document.getElementById('latest-frame').addEventListener('click', function(){
+    lastFocus = null;
+    open(latest.img, latest.note, (latest.place || '') + ' · ' + (fmt(latest.date) || ''));
+  });
+  document.getElementById('gal').addEventListener('click', function(e){
+    var f = e.target.closest('.frame');
+    if(!f) return;
+    lastFocus = null;
+    open(f.dataset.img, f.dataset.cap, 'Before the ledger');
+  });
+  document.getElementById('box-x').addEventListener('click', close);
+  box.addEventListener('click', function(e){ if(e.target === box) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && box.classList.contains('on')) close(); });
+
+  /* ---------- finale ---------- */
+  var ask  = document.getElementById('ask');
+  var yes  = document.getElementById('yes');
+  var no   = document.getElementById('no');
+  var face = document.getElementById('face');
+  var askH = document.getElementById('ask-h');
+  var askP = document.getElementById('ask-p');
+  var yay  = document.getElementById('yay');
+  var conf = document.getElementById('conf');
+  var colors = ['#FFC94D','#E24E76','#7FBF9B','#EDE9F7'];
+
+  if(hasNext){
+    askH.textContent = 'Next: ' + NEXT.place;
+    askP.textContent = fmt(NEXT.date) + '. Already pencilled into the ledger. Confirm it so I can stop worrying.';
+    yes.textContent = 'Confirmed';
+    document.getElementById('yay-big').textContent = 'Locked in.';
+    document.getElementById('yay-p').textContent = NEXT.place + ', ' + fmt(NEXT.date) + '. Block it before something else does.';
+  }
+
+  var calStart = hasNext ? ymd(NEXT.date) : null;
+  var calEnd = hasNext ? nextDay(NEXT.date) : null;
+  var link = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+    '&text=' + encodeURIComponent(hasNext ? NEXT.place + ' — with Kartik' : 'Hangout — with Kartik') +
+    (calStart ? '&dates=' + calStart + '/' + calEnd : '') +
+    '&details=' + encodeURIComponent('Next entry in the ledger. Photo proof mandatory.') +
+    (hasNext ? '&location=' + encodeURIComponent(NEXT.place) : '') +
+    '&add=' + encodeURIComponent(HER_EMAIL);
+  document.getElementById('cal-link').href = link;
+
+  var rounds = [
+    {f:'😐', h:'That is the wrong button.',      p:'The ledger does not fill itself. Try the other one.'},
+    {f:'😔', h:'Entry №' + (settled.length+1) + ' is waiting.', p:'It has a number already. It just needs a place and a day.'},
+    {f:'🥲', h:'One row. That is the ask.',      p:'The last one took us about two years to book, so let’s beat that record.'},
+    {f:'😩', h:'Round four.',                    p:'The cafes are not going anywhere but my dignity is.'},
+    {f:'🫠', h:'I can do this all day.',         p:'The no button is shrinking and I am getting more hopeful.'},
+    {f:'🥹', h:'Please?',                        p:'Then I’ll stop. Probably.'}
+  ];
+  var i = 0;
+
+  no.addEventListener('click', function(){
+    var r = rounds[Math.min(i, rounds.length - 1)];
+    face.textContent = r.f;
+    askH.textContent = r.h;
+    askP.textContent = r.p;
+    face.classList.remove('bump');
+    void face.offsetWidth;
+    face.classList.add('bump');
+
+    i++;
+    var shrink = Math.max(1 - i * 0.13, 0.42);
+    no.style.transform = 'scale(' + shrink + ')';
+    no.style.opacity = Math.max(1 - i * 0.1, 0.45);
+    yes.style.fontSize = Math.min(1.06 + i * 0.11, 1.85) + 'rem';
+    yes.style.padding = Math.min(17 + i * 3, 32) + 'px ' + Math.min(30 + i * 6, 66) + 'px';
+  });
+
+  yes.addEventListener('click', function(){
+    ask.classList.add('gone');
+    yay.classList.add('on');
+    rain();
+    yay.scrollIntoView({block:'center', behavior:'smooth'});
+  });
+
+  function rain(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    for(var k=0;k<70;k++){
+      var p = document.createElement('i');
+      p.style.left = Math.random()*100 + '%';
+      p.style.background = colors[k % colors.length];
+      p.style.animation = 'drop ' + (2.2 + Math.random()*1.8) + 's ' + (Math.random()*.7) + 's ease-in forwards';
+      conf.appendChild(p);
+      setTimeout((function(el){ return function(){ el.remove(); }; })(p), 5200);
+    }
+  }
+
+  /* ---------- reveal ---------- */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.18});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* ---------- gate ---------- */
   var gate = document.getElementById('gate');
   var cal  = document.getElementById('cal');
   var err  = document.getElementById('err');
   var moEl = document.getElementById('mo');
   var daysEl = document.getElementById('days');
   var prev = document.getElementById('prev');
-  var next = document.getElementById('next');
+  var nextBtn = document.getElementById('next');
 
   var TARGET = {y:2023, m:5, d:30};          // 30 June 2023 (m is 0-indexed)
   var MIN = {y:2023, m:0}, MAX = {y:2023, m:11};
-  var view = {y:2023, m:0};                   // opens on January 2023
-  var MONTHS = ['January','February','March','April','May','June',
-                'July','August','September','October','November','December'];
+  var view = {y:2023, m:0};
   var misses = 0;
   var nudges = ['Not that one. Keep looking.',
                 'Close, but no.',
@@ -370,14 +713,14 @@ body.locked{overflow:hidden}
   function render(){
     moEl.textContent = MONTHS[view.m] + ' ' + view.y;
     prev.disabled = (view.y === MIN.y && view.m === MIN.m);
-    next.disabled = (view.y === MAX.y && view.m === MAX.m);
+    nextBtn.disabled = (view.y === MAX.y && view.m === MAX.m);
 
-    var first = new Date(view.y, view.m, 1).getDay();   // 0 = Sunday
-    var lead = (first + 6) % 7;                          // grid starts Monday
+    var first = new Date(view.y, view.m, 1).getDay();
+    var lead = (first + 6) % 7;
     var total = new Date(view.y, view.m + 1, 0).getDate();
 
     daysEl.innerHTML = '';
-    for(var i = 0; i < lead; i++){
+    for(var j = 0; j < lead; j++){
       var b = document.createElement('span');
       b.className = 'day blank';
       daysEl.appendChild(b);
@@ -387,7 +730,6 @@ body.locked{overflow:hidden}
       btn.type = 'button';
       btn.className = 'day';
       btn.textContent = d;
-      btn.dataset.d = d;
       if(view.y === TARGET.y && view.m === TARGET.m && d === TARGET.d){
         btn.classList.add('hot');
         btn.setAttribute('aria-label', d + ' ' + MONTHS[view.m] + ' ' + view.y + ' — marked');
@@ -425,7 +767,7 @@ body.locked{overflow:hidden}
   }
 
   prev.addEventListener('click', function(){ step(-1); });
-  next.addEventListener('click', function(){ step(1); });
+  nextBtn.addEventListener('click', function(){ step(1); });
   daysEl.addEventListener('click', function(e){
     var btn = e.target.closest('.day');
     if(!btn || btn.classList.contains('blank')) return;
@@ -437,76 +779,6 @@ body.locked{overflow:hidden}
     document.body.classList.remove('locked');
   } else {
     render();
-  }
-
-  var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  },{threshold:.18});
-  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-
-  var ask  = document.getElementById('ask');
-  var yes  = document.getElementById('yes');
-  var no   = document.getElementById('no');
-  var face = document.getElementById('face');
-  var askH = document.getElementById('ask-h');
-  var askP = document.getElementById('ask-p');
-  var yay  = document.getElementById('yay');
-  var conf = document.getElementById('conf');
-  var colors = ['#FFC94D','#E24E76','#7FBF9B','#EDE9F7'];
-
-  // Google Calendar: all-day Sunday, guest added. dates end is exclusive.
-  document.getElementById('cal-link').href =
-    'https://calendar.google.com/calendar/render?action=TEMPLATE' +
-    '&text=' + encodeURIComponent('Kokoy, Noida — with Kartik') +
-    '&dates=20260809/20260810' +
-    '&details=' + encodeURIComponent('The pending plan, finally happening. Ice cream is on me.') +
-    '&location=' + encodeURIComponent('Kokoy Cafe, Noida') +
-    '&add=' + encodeURIComponent('lavishkatyagi01@gmail.com');
-
-  var rounds = [
-    {f:'😢', h:'That is the wrong button.',   p:'Try the other one. It is right there, and it is bigger now.'},
-    {f:'😭', h:'Okay that genuinely hurt.',   p:'I already promised you ice cream. I do not make that promise lightly.'},
-    {f:'🥲', h:'Still asking. Politely.',     p:'One afternoon. That is the entire ask. Then you never hear about Kokoy again.'},
-    {f:'😩', h:'This is round four.',         p:'The cafe is not going anywhere but my dignity is.'},
-    {f:'🫠', h:'I can do this all day.',      p:'The no button is getting smaller and I am getting more hopeful.'},
-    {f:'🥹', h:'Please?',                     p:'Last one. Well, not really. But say yes anyway.'}
-  ];
-  var i = 0;
-
-  no.addEventListener('click', function(){
-    var r = rounds[Math.min(i, rounds.length - 1)];
-    face.textContent = r.f;
-    askH.textContent = r.h;
-    askP.textContent = r.p;
-    face.classList.remove('bump');
-    void face.offsetWidth;
-    face.classList.add('bump');
-
-    i++;
-    var shrink = Math.max(1 - i * 0.13, 0.42);
-    no.style.transform = 'scale(' + shrink + ')';
-    no.style.opacity = Math.max(1 - i * 0.1, 0.45);
-    yes.style.fontSize = Math.min(1.06 + i * 0.11, 1.85) + 'rem';
-    yes.style.padding = Math.min(17 + i * 3, 32) + 'px ' + Math.min(30 + i * 6, 66) + 'px';
-  });
-
-  yes.addEventListener('click', function(){
-    ask.classList.add('gone');
-    yay.classList.add('on');
-    rain();
-    yay.scrollIntoView({block:'center', behavior:'smooth'});
-  });
-
-  function rain(){
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    for(var i=0;i<70;i++){
-      var p = document.createElement('i');
-      p.style.left = Math.random()*100 + '%';
-      p.style.background = colors[i % colors.length];
-      p.style.animation = 'drop ' + (2.2 + Math.random()*1.8) + 's ' + (Math.random()*.7) + 's ease-in forwards';
-      conf.appendChild(p);
-      setTimeout((function(el){ return function(){ el.remove(); }; })(p), 5200);
-    }
   }
 })();
 </script>
